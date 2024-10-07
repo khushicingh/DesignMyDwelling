@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 800px;
+            position: relative;
+            z-index: 1; /* Bring container above background */
+        }
+
+        .left, .right {
+            padding: 20px;
+        }
+
+        .left {
+            width: 50%;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .right {
+            width: 50%;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: #888;
+        }
+
+        .subscription-details {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .subscription-details img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .subscription-details div {
+            font-size: 14px;
+        }
+
+        .subtotal, .total {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .promotion-code {
+            color: #007bff;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .pay-button {
+            background-color: #00c853;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .pay-button i {
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group .card-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-group .card-icons img {
+            height: 24px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        .subscribe-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="title">
+                Subscribe to DesignMyDwelling Subscription($20) - Essential Plan
+            </div>
+            <div class="price">
+                US$20.00
+                <span> per month</span>
+            </div>
+            <div class="subscription-details">
+                <img alt="Subscription Icon" height="40" src="https://storage.googleapis.com/a1aa/image/Tt8zerEqznVyAiA1KV3SkuGytmee7ZRqPRNPxXAtThbzF8FnA.jpg" width="40"/>
+                <div>
+                    <div>DesignMyDwelling Subscription($20) - Essential Plan</div>
+                    <div>Billed monthly</div>
+                </div>
+            </div>
+            <div class="subtotal">Subtotal US$20.00</div>
+            <div class="promotion-code">Add promotion code</div>
+            <div class="total">Total due today US$20.00</div>
+        </div>
+        <div class="right">
+            <button class="pay-button">
+                <i class="fas fa-link"></i>
+                Pay with Link
+            </button>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" value="youremail12@gmail.com"/>
+            </div>
+            <div class="form-group">
+                <label for="card-info">Card information</label>
+                <input id="card-info" placeholder="1234 1234 1234 1234" type="text"/>
+                <div class="card-icons">
+                    <input placeholder="MM / YY" style="width: 48%;" type="text"/>
+                    <input placeholder="CVC" style="width: 48%;" type="text"/>
+                    <img alt="Visa" height="24" src="https://storage.googleapis.com/a1aa/image/sPFqMonvR5b5NRsfLUO5EeLZQ2QJmiLqF1rMXM2Ijrm7CeFnA.jpg" width="24"/>
+                    <img alt="MasterCard" height="24" src="https://storage.googleapis.com/a1aa/image/Z6rRQoLPy26xBBAfeCfHEpd1knMgLjK0UPeQiB6WH7yeWwXcC.jpg" width="24"/>
+                    <img alt="American Express" height="24" src="https://storage.googleapis.com/a1aa/image/PGrbS2DCXM4qFVWWfDrBz7gdGa810G8RBkKnzdPen7f0F8FnA.jpg" width="24"/>
+                    <img alt="Discover" height="24" src="https://storage.googleapis.com/a1aa/image/YBSfch9SIehSZU5eJeZ2JDztcZOsaYPb1t34hn1w49H3L4LOB.jpg" width="24"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cardholder-name">Cardholder name</label>
+                <input id="cardholder-name" placeholder="Full name on card" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="country">Country or region</label>
+                <select id="country">
+                   <option>Australia</option> 
+                    <option>Belgium</option>
+                    <option>China</option>
+                    <option>India</option>
+                    <option>Indonesia</option>
+                     <option>USA</option>
+                </select>
+            </div>
+            <div class="checkbox-group">
+                <input id="save-info" type="checkbox"/>
+                <label for="save-info">Securely save my information for 1-click checkout</label>
+            </div>
+            <button class="subscribe-button">Subscribe</button>
+        </div>
+    </div>
+</body>
+</html>

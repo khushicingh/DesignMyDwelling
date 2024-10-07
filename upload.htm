@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignMyDwelling</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: #2a2a72;
+    margin-bottom: 20px;
+}
+
+.image-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.solution-options h3 {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.solution-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.solution-buttons button {
+    background-color: #e0f7fa;
+    border: 1px solid #0097a7;
+    color: #00796b;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.solution-buttons button.active {
+    background-color: #00796b;
+    color: #fff;
+}
+
+.solution-buttons button:hover {
+    background-color: #0097a7;
+    color: #fff;
+}
+
+
+  .upload-btn {
+            margin-top: 20px;
+        }
+
+.footer button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.footer button:hover {
+    background-color: #45a049;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>DesignMyDwelling</h1>
+            <form>
+            <div>
+                <label for="imageUpload" class="upload-btn">Upload an Image</label>
+                <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)" style="display:none;">
+            </div>
+        </form>
+        <div class="solution-options">
+            <h3>Choose a solution</h3>
+            <div class="solution-buttons">
+                <button onclick="selectSolution('Virtual Staging')" class="active">Virtual Staging</button>
+                <button onclick="selectSolution('Redesign Furnished Rooms')">Redesign Furnished Rooms</button>
+                <button onclick="selectSolution('Empty Your Space')">Empty Your Space</button>
+                <button onclick="selectSolution('Landscaping')">Landscaping</button>
+                <button onclick="selectSolution('Render Exterior Structures')">Render Exterior Structures</button>
+            </div>
+        </div>
+        <div class="footer">
+            <button onclick="continueToNext()">Continue</button>
+        </div>
+    </div>
+    <script>// Handles solution button clicks
+function selectSolution(solution) {
+    // Clear previous active state
+    const buttons = document.querySelectorAll('.solution-buttons button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Add active state to the clicked button
+    event.target.classList.add('active');
+    
+    console.log(solution + ' selected');
+}
+
+// Handles the continue button click
+function continueToNext() {
+    alert('Continue to next step...');
+}
+</script>
+</body>
+</html>

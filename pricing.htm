@@ -1,0 +1,239 @@
+<html>
+<head>
+    <title>Pricing Plans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+   .pricing-section{
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a0e7e5, #b4f8c8);
+            overflow: hidden;
+     
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 10s infinite ease-in-out, move 20s infinite ease-in-out;
+        }
+        .bubble:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            left: 20%;
+            animation-duration: 8s, 16s;
+        }
+        .bubble:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 40%;
+            animation-duration: 12s, 24s;
+        }
+        .bubble:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 60%;
+            animation-duration: 10s, 20s;
+        }
+        .bubble:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            bottom: 40%;
+            left: 80%;
+            animation-duration: 14s, 28s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .pricing-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .pricing-section h1 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .pricing-section p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+        .pricing-section .special-offer {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e0f7ff;
+            color: #00aaff;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .pricing-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: left;
+            position: relative;
+        }
+        .pricing-card .badge {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background-color: #e0e0e0;
+            color: #666666;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .pricing-card .badge.most-popular {
+            background-color: #00aaff;
+            color: #ffffff;
+        }
+        .pricing-card h2 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .pricing-card .price {
+            font-size: 36px;
+            color: #00aaff;
+            margin-bottom: 10px;
+        }
+        .pricing-card .price del {
+            font-size: 18px;
+            color: #666666;
+            margin-left: 10px;
+        }
+        .pricing-card .price span {
+            font-size: 18px;
+            color: #666666;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pricing-card ul li {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+        .pricing-card .subscribe-button {
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #00aaff;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <section class="pricing-section">
+        <h1>Pricing Plans</h1>
+        <p>Choose the right plan for your needs, cancel anytime.</p>
+        <div class="special-offer">Special Pricing for India - 50% off.</div>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="badge">Essential</div>
+                <h2>Starter pack</h2>
+                <div class="price">₹586 <del>₹1173</del> <span>/month</span></div>
+                <ul>
+                    <li>50% OFF</li>
+                    <li>You will be billed in USD, at the discounted price of $7.00 USD.</li>
+                    <li>30 credits/month</li>
+                    <li>Ideal for 5 listing photos</li>
+                    <li>USE CODE: LIVE50</li>
+                </ul>
+                <a href="#" class="subscribe-button">Subscribe now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="badge most-popular">Optimal</div>
+                <h2>For active agents</h2>
+                <div class="price">₹1215 <del>₹2430</del> <span>/month</span></div>
+                <ul>
+                    <li>50% OFF</li>
+                    <li>You will be billed in USD, at the discounted price of $14.50 USD.</li>
+                    <li>200 credits/month</li>
+                    <li>Ideal for 30 listing photos</li>
+                    <li>USE CODE: HAPPY50</li>
+                </ul>
+                <a href="#" class="subscribe-button">Subscribe now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="badge">Advanced</div>
+                <h2>For top producers</h2>
+                <div class="price">₹2053 <del>₹4107</del> <span>/month</span></div>
+                <ul>
+                    <li>50% OFF</li>
+                    <li>You will be billed in USD, at the discounted price of $24.50 USD.</li>
+                    <li>500 credits/month</li>
+                    <li>Ideal for 80 listing photos</li>
+                    <li>USE CODE: KHUSHI50</li>
+                </ul>
+                <a href="#" class="subscribe-button">Subscribe now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="badge">Premium</div>
+                <h2>For larger volumes</h2>
+                <div class="price">₹4148 <del>₹8297</del> <span>/month</span></div>
+                <ul>
+                    <li>50% OFF</li>
+                    <li>You will be billed in USD, at the discounted price of $49.50 USD.</li>
+                    <li>1200 credits/month</li>
+                    <li>Ideal for 200 listing photos</li>
+                    <li>USE CODE: MONIGOYL50</li>
+                </ul>
+                <a href="#" class="subscribe-button">Subscribe now</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        1 credit = 1 generation | Payment secured by stripe
+    </footer>
+</body>
+</html>

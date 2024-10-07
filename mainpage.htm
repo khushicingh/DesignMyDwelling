@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignMyDwelling</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+   body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f8ff;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .header .nav-links a {
+            margin: 0 10px;
+        }
+        .header .sign-up {
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .hero .upload-btn, .hero .ai-btn, .hero .designer-btn, .hero .own-btn {
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        .hero .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+   .chat-button {
+  background-color: #4CAF50; 
+  color: #ffffff; 
+  border: none;
+  padding: 10px 20px; 
+  font-size: 16px;
+  cursor: pointer; 
+  }
+
+  .chat-button:hover {
+  background-color: #3e8e41;
+ }
+
+  .chat-button:active {
+  background-color: #3e8e41; 
+  box-shadow: 0 5px #666; 
+ }
+
+  .fas {
+  margin-right: 10px;
+}
+
+        .trusted-section {
+            background-color: #e0f7fa;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .trusted-section .trusted-stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .trusted-section .trusted-stats div {
+            text-align: center;
+        }
+        .trusted-section .trusted-stats div h3 {
+            margin: 10px 0;
+        }
+        .ai-powered-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .ai-powered-section h2 {
+            margin-bottom: 20px;
+        }
+      
+        .image-slider-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            padding: 20px;
+            overflow-x: auto; /* Allow horizontal scrolling on small screens */
+        }
+
+        .image-slider {
+            width: 25%; /* Adjust the width to fit multiple sliders horizontally */
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .comparison-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px; /* Set a fixed height for all images */
+        }
+
+        .image-left, .image-right {
+            width: 100%;
+            height: 100%; /* Force both images to fill the container */
+            object-fit: cover; /* Ensure that images maintain their aspect ratio while filling the container */
+            display: block;
+        }
+
+        .image-right {
+            position: absolute;
+            top: 0;
+            left: 0;
+            clip-path: inset(0 50% 0 0); /* Initial half-and-half */
+            transition: clip-path 0.3s ease;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: #00cba9;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-arrow::after {
+            content: '>';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+        }
+
+        .slider-caption {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slider-caption p {
+            margin: 5px 0;
+        }
+
+        .slider-caption button {
+            padding: 10px 20px;
+            background-color: #00cba9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .slider-caption button:hover {
+            background-color: #009d84;
+        }        .chat-now {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .button-group a {
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+    /* Pricing Section */
+        .pricing-section {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #a0e7e5, #b4f8c8);
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 10s infinite ease-in-out, move 20s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            left: 20%;
+        }
+
+        .bubble:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 40%;
+        }
+
+        .bubble:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 60%;
+        }
+
+        .bubble:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            bottom: 40%;
+            left: 80%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .pricing-section h1 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .pricing-section:hover h1 {
+            color: #00aaff;
+        }
+
+        .pricing-section p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        .pricing-section .special-offer {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e0f7ff;
+            color: #00aaff;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-section .special-offer:hover {
+            background-color: #c0e7ff;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card h2 {
+            font-size: 28px;
+            color: #00aaff;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .pricing-card:hover h2 {
+            color: #0077cc;
+        }
+
+        .pricing-card p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00aaff;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .subscribe-now {
+            display: inline-block;
+            background-color: #00aaff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-card .subscribe-now:hover {
+            background-color: #0077cc;
+        }
+<!---faq--->  
+      
+      .faq-section {
+            background-color: Skyblue;
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            border-top: 1px solid #E0E0E0;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item:first-child {
+            border-top: none;
+        }
+        .faq-item a {
+            text-decoration: none;
+            color: #1A1A1A;
+            font-size: 18px;
+        }
+        .faq-item a:hover {
+            text-decoration: underline;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px 0;
+            color: #1A1A1A;
+            font-size: 16px;
+        }
+        .footer {
+            background-color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+        }
+        .footer .logo span {
+            color: #00A99D;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: #1A1A1A;
+            font-size: 20px;
+        }
+        .footer .column {
+            flex: 1;
+            margin: 0 20px;
+        }
+        .footer .column h3 {
+            font-size: 18px;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+        }
+        .footer .column a {
+            text-decoration: none;
+            color: #1A1A1A;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer .column a:hover {
+            text-decoration: underline;
+        }
+        .footer .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        .footer .contact-info i {
+            margin-right: 10px;
+            color: #00A99D;
+        }
+     footer {
+            background-color: #333333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+  </style>
+ <script>
+        function toggleAnswer(event) {
+            event.preventDefault();
+            const answer = event.target.parentElement.nextElementSibling;
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+   </script> 
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">DesignMyDwelling</div>
+        <div class="nav-links">
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/features.htm">Features</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/product/index.html">Products</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/contact.htm">Contact</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/login/index1.html">Sign In</a>
+            <a class="sign-up" href="file:///C:/Users/DELL/Desktop/vitualhome/login/index1.html">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="C:\Users\DELL\Desktop\webimages\j.jpg" alt="Beautifully staged bedroom" width="1200" height="600"/>
+        <div class="overlay">
+            <h1>Instant Virtual Staging And More</h1>
+            <p>First 5 Photo Makeovers Free. Boost Your Property Listings Now!</p>
+            <a class="upload-btn" href="file:///C:/Users/DELL/Desktop/vitualhome/upload.htm">Upload Image</a>
+            <div class="button-group">
+                <a class="ai-btn" href="https://claude.ai/login?returnTo=%2F%3F">AI</a>
+                <a class="designer-btn" href="file:///C:/Users/DELL/Desktop/vitualhome/dashboard/index.html">Designer</a>
+                <a class="own-btn" href="file:///C:/Users/DELL/Desktop/vitualhome/home.htm">Own</a>
+            </div>
+        </div>
+    </div>
+<!-----chat----->
+<a href="file:///C:/Users/DELL/Desktop/vitualhome/chat%20box/index.html">
+  <button class="chat-button">
+    <i class="fas fa-comments">Chat</i>
+  </button>
+</a>
+
+    <!-- Trusted Section -->
+    <div class="trusted-section">
+        <h2>Trusted in Over 150 Countries Worldwide</h2>
+        <div class="trusted-stats">
+            <div>
+                <h3>1.5M+</h3>
+                <p>Users</p>
+            </div>
+            <div>
+                <h3>23M+</h3>
+                <p>Photos Processed</p>
+            </div>
+            <div>
+                <h3>200M+</h3>
+                <p>Listings Enhanced</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI-Powered Section -->
+     <div class="ai-powered-section">
+        <h2>AI Powered Listing Makeovers</h2>
+   <section class="image-slider-section">
+    <div class="image-slider">
+        <div class="comparison-container">
+            <img src="C:\Users\DELL\Desktop\webimages\vs2.jpg" alt="Original" class="image-left">
+            <img src="C:\Users\DELL\Desktop\webimages\vs1.jfif" alt="Reimagined" class="image-right">
+            <div class="slider-arrow" id="sliderArrow"></div>
+        </div>
+        <div class="slider-caption">
+            <p>Virtual Staging</p>
+            <p>Furnish empty rooms with realistic furniture</p>
+            <button>Try now for FREE</button>
+        </div>
+    </div>
+
+    <div class="image-slider">
+        <div class="comparison-container">
+            <img src="C:\Users\DELL\Desktop\webimages\bd1.jfif" alt="Original" class="image-left">
+            <img src="C:\Users\DELL\Desktop\webimages\s8.jfif" alt="Reimagined" class="image-right">
+            <div class="slider-arrow" id="sliderArrow2"></div>
+        </div>
+        <div class="slider-caption">
+            <p>Empty Your Space</p>
+            <p>Remove all furniture and clutter in your room photos</p>
+            <button>Try now for FREE</button>
+        </div>
+    </div>
+
+    <div class="image-slider">
+        <div class="comparison-container">
+            <img src="C:\Users\DELL\Desktop\webimages\5.jpg" alt="Original" class="image-left">
+            <img src="C:\Users\DELL\Desktop\webimages\d.jpg" alt="Reimagined" class="image-right">
+            <div class="slider-arrow" id="sliderArrow3"></div>
+        </div>
+        <div class="slider-caption">
+            <p>Render Exterior Structures</p>
+            <p>Create designs for 3D sketches & existing homes</p>
+            <button>Try now for FREE</button>
+        </div>
+    </div>
+
+    <div class="image-slider">
+        <div class="comparison-container">
+            <img src="C:\Users\DELL\Desktop\webimages\rf1.jfif" alt="Original" class="image-left">
+            <img src="C:\Users\DELL\Desktop\webimages\rf2.jfif" alt="Reimagined" class="image-right">
+            <div class="slider-arrow" id="sliderArrow4"></div>
+        </div>
+        <div class="slider-caption">
+            <p>Redesign Furnished Rooms</p>
+            <p>Transform outdated furnishings into eye-catching interiors</p>
+            <button>Try now for FREE</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.slider-arrow').forEach(function(arrow) {
+        arrow.addEventListener('mousedown', function(e) {
+            const container = this.closest('.comparison-container');
+            const rightImage = container.querySelector('.image-right');
+            const containerWidth = container.offsetWidth;
+
+            function moveArrow(event) {
+                let offsetX = event.pageX - container.getBoundingClientRect().left;
+                if (offsetX < 0) offsetX = 0;
+                if (offsetX > containerWidth) offsetX = containerWidth;
+
+                const percentage = (offsetX / containerWidth) * 100;
+                rightImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+                arrow.style.left = `${percentage}%`;
+            }
+
+            document.addEventListener('mousemove', moveArrow);
+
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', moveArrow);
+            }, { once: true });
+        });
+    });
+</script>
+
+ <!-- Pricing Section -->
+    <section class="pricing-section">
+        <h1>Choose Your Plan</h1>
+        <p>Select a plan that best suits your needs. First 5 makeovers are free!</p>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h2>Basic Plan</h2>
+                <p>Perfect for individuals just starting out.</p>
+                <div class="price">$19.99/mo</div>
+                <a href="file:///C:/Users/DELL/Desktop/vitualhome/subscption.htm" class="subscribe-now">Subscribe Now</a>
+            </div>
+            <div class="pricing-card">
+                <h2>Pro Plan</h2>
+                <p>For real estate professionals who need more features.</p>
+                <div class="price">$49.99/mo</div>
+                <a href="file:///C:/Users/DELL/Desktop/vitualhome/subscription1.htm" class="subscribe-now">Subscribe Now</a>
+            </div>
+            <div class="pricing-card">
+                <h2>Enterprise</h2>
+                <p>Best for large teams and companies.</p>
+                <div class="price">$99.99/mo</div>
+                <a href="file:///C:/Users/DELL/Desktop/vitualhome/subscription1.htm" class="subscribe-now">Subscribe Now</a>
+            </div>
+        </div>
+    </section>
+ 
+     
+<!----faq---->
+<div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+    </div>
+        <div class="faq-item">
+            <a href="#">What is DesignMyDwelling?</a>
+            <a href="#" onclick="toggleAnswer(event)">+</a>
+        </div>
+        <div class="faq-answer">DesignMyDwelling is a platform that helps you visualize and redesign your living spaces using advanced AI technology.</div>
+        <div class="faq-item">
+            <a href="#">How does DesignMyDwelling work?</a>
+            <a href="#" onclick="toggleAnswer(event)">+</a>
+        </div>
+        <div class="faq-answer">DesignMyDwelling uses AI to generate realistic images of redesigned spaces based on your inputs and preferences.</div>
+        <div class="faq-item">
+            <a href="#">Is DesignMyDwelling free to use?</a>
+            <a href="#" onclick="toggleAnswer(event)">+</a>
+        </div>
+        <div class="faq-answer">DesignMyDwelling offers both free and premium plans. The free plan includes basic features, while the premium plan offers advanced functionalities.</div>
+        <div class="faq-item">
+            <a href="#">How do I contact DesignMyDwelling?</a>
+            <a href="#" onclick="toggleAnswer(event)">+</a>
+        </div>
+        <div class="faq-answer">You can contact DesignMyDwelling via email at info@DesignMyDwelling.ai or through our contact form on the website.</div>
+    </div>
+    <div class="footer">
+        <div class="column">
+            <div class="logo">Design<span>My</span>Dwelling</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Company</h3>
+            <a href="#">Pricing</a>
+            <a href="#">Products</a>
+        </div>
+        <div class="column">
+            <h3>Solutions</h3>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/upload.htm">Virtual Staging</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/upload.htm">Empty Your Space</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/upload.htm">Redesign Furnished Rooms</a>
+        </div>
+        <div class="column">
+            <h3>Terms & Policy</h3>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/t&c.htm">Terms of Services</a>
+            <a href="file:///C:/Users/DELL/Desktop/vitualhome/privacy.htm">Privacy Policy</a>
+        </div>
+        <div class="column">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@reimaginehome.ai">info@DesignMyDwelling.ai</a>
+            </div>
+        </div>
+
+ <!-----<footer>
+        <p>&copy; 2024 DesignMyDwelling. All rights reserved.</p>
+    </footer>------->
+</body>
+</html>
